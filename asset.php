@@ -30,7 +30,7 @@ $parseURL = parse_url($shop);
 // $script_array = array(
 //     'script_tag'=> array(
 //         'event' => 'onload',
-//         'src'=> ' https://6e679e71494c.ngrok.io/shopify-app/scripts/script.js'
+//         'src'=> ' https://wafful.herokuapp.com/scripts/script.js'
 //     )
 // );
 // $scriptTag=shopify_call($token, $shop, "/admin/api/2021-04/script_tags.json", $script_array,'POST');
