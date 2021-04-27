@@ -2,7 +2,7 @@
 
 // Set variables for our request
 $shop = $_GET['shop'];
-$api_key = "bda9558da2eaa43ba3f36b00354fd722";
+$api_key = "f8023b46ccb55af27f0e3990e8e28316";
 $scopes = "read_orders,write_products,write_script_tags,read_content,write_themes";
 $redirect_uri = "https://waffle-grid-compare.herokuapp.com/generate_token.php";
 
