@@ -1,4 +1,4 @@
-<?php
+<!-- <?php
 require_once("inc/functions.php");
 require_once("inc/connect.php");
 require('./vendor/autoload.php');
@@ -9,21 +9,21 @@ $app->get('/cowsay', function() use($app) {
 
 $requests = $_GET;
 
-// $sql = 'SELECT * FROM example_table WHERE store_url="' . $requests['shop'] . '" LIMIT 1';
-// $result = mysqli_query($conn, $sql);
-// $row = mysqli_fetch_assoc($result);
+$sql = 'SELECT * FROM example_table WHERE store_url="' . $requests['shop'] . '" LIMIT 1';
+$result = mysqli_query($conn, $sql);
+$row = mysqli_fetch_assoc($result);
 
 
 
 
-// $hmace = $_GET['hmac'];
-// $serializeArray = serialize($requests);
-// $requests = array_diff_key($requests, array('hmac' => ''));
-// ksort($requests);
-// $token = $row['access_token'];
-// $shop = $row['store_url'];
+$hmace = $_GET['hmac'];
+$serializeArray = serialize($requests);
+$requests = array_diff_key($requests, array('hmac' => ''));
+ksort($requests);
+$token = $row['access_token'];
+$shop = $row['store_url'];
 
-// $parseURL = parse_url($shop);
+$parseURL = parse_url($shop);
 
 
 
@@ -509,4 +509,11 @@ $requests = $_GET;
     });
 </script>
 
+</html> -->
+
+
+<html>
+<body>
+    <div>sdldfjlijrfjij</div>
+</body>
 </html>
