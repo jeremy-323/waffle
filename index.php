@@ -1,29 +1,30 @@
-<!-- <?php
-require_once("inc/functions.php");
-require_once("inc/connect.php");
-require('./vendor/autoload.php');
-$app->get('/cowsay', function() use($app) {
-    $app['monolog']->addDebug('cowsay');
-    return "<pre>".\Cowsayphp\Cow::say("Cool beans")."</pre>";
-  });
+<!-- 
+php
+// require_once("inc/functions.php");
+// require_once("inc/connect.php");
+// require('./vendor/autoload.php');
+// $app->get('/cowsay', function() use($app) {
+//     $app['monolog']->addDebug('cowsay');
+//     return "<pre>".\Cowsayphp\Cow::say("Cool beans")."</pre>";
+//   });
 
-$requests = $_GET;
+// $requests = $_GET;
 
-$sql = 'SELECT * FROM example_table WHERE store_url="' . $requests['shop'] . '" LIMIT 1';
-$result = mysqli_query($conn, $sql);
-$row = mysqli_fetch_assoc($result);
-
-
+// $sql = 'SELECT * FROM example_table WHERE store_url="' . $requests['shop'] . '" LIMIT 1';
+// $result = mysqli_query($conn, $sql);
+// $row = mysqli_fetch_assoc($result);
 
 
-$hmace = $_GET['hmac'];
-$serializeArray = serialize($requests);
-$requests = array_diff_key($requests, array('hmac' => ''));
-ksort($requests);
-$token = $row['access_token'];
-$shop = $row['store_url'];
 
-$parseURL = parse_url($shop);
+
+// $hmace = $_GET['hmac'];
+// $serializeArray = serialize($requests);
+// $requests = array_diff_key($requests, array('hmac' => ''));
+// ksort($requests);
+// $token = $row['access_token'];
+// $shop = $row['store_url'];
+
+// $parseURL = parse_url($shop);
 
 
 
@@ -259,7 +260,7 @@ $parseURL = parse_url($shop);
     <div class="info">
     </div>
     <div class="assets-container">
-        <?php
+        <php
         $theme = shopify_call($token, $shop, "/admin/api/2021-04/themes.json", array(), 'GET');
         $theme = json_decode($theme['response'], JSON_PRETTY_PRINT);
 
