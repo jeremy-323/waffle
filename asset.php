@@ -5,7 +5,7 @@ require_once("inc/connect.php");
 
 $requests = $_GET;
 
-$sql = 'SELECT * FROM example_table WHERE store_url="' . $requests['shop'] . '" LIMIT 1';
+$sql = 'SELECT * FROM waffle_cred WHERE store_url="' . $requests['shop'] . '" LIMIT 1';
 $result = mysqli_query($conn, $sql);
 $row = mysqli_fetch_assoc($result);
 // echo $row['store_url'];

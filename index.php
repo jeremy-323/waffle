@@ -3,25 +3,25 @@ require_once("inc/functions.php");
 require_once("inc/connect.php");
 
 
-// $requests = $_GET;
+$requests = $_GET;
 
-// $sql = 'SELECT * FROM waffle_cred WHERE store_url="' . $requests['shop'] . '" LIMIT 1';
-// $result = mysqli_query($conn, $sql);
-// $row = mysqli_fetch_assoc($result);
-// // echo $row['store_url'];
-// // echo $row['access_token'];
+$sql = 'SELECT * FROM waffle_cred WHERE store_url="' . $requests['shop'] . '" LIMIT 1';
+$result = mysqli_query($conn, $sql);
+$row = mysqli_fetch_assoc($result);
+// echo $row['store_url'];
+// echo $row['access_token'];
 
 
 
-// $hmace = $_GET['hmac'];
-// $serializeArray = serialize($requests);
-// $requests = array_diff_key($requests, array('hmac' => ''));
-// ksort($requests);
-// $token = $row['access_token'];
-// $shop = $row['store_url'];
+$hmace = $_GET['hmac'];
+$serializeArray = serialize($requests);
+$requests = array_diff_key($requests, array('hmac' => ''));
+ksort($requests);
+$token = $row['access_token'];
+$shop = $row['store_url'];
 
-// $parseURL = parse_url($shop);
-// $subdomain=explode('.',$parseURL['host']);
+$parseURL = parse_url($shop);
+$subdomain=explode('.',$parseURL['host']);
 
 
 
