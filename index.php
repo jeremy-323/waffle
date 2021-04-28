@@ -176,7 +176,9 @@ $subdomain=explode('.',$parseURL['host']);
             grid-template-columns:1fr 7fr;
         }
         .steps h3{
-            grid-column:-1/2;
+            grid-column: 1/2;
+            display: flex;
+            align-items: center;
         }
         .steps p{
             padding: 20px;
