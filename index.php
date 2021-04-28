@@ -58,6 +58,7 @@ $subdomain=explode('.',$parseURL['host']);
     <style>
         body{
             font-family: "Trebuchet MS",sans-serif;
+            padding: 0 50px;
         }
         body button{
             font-family: "Trebuchet MS",sans-serif;
@@ -205,6 +206,12 @@ $subdomain=explode('.',$parseURL['host']);
             display: block;
         }
         @media (max-width: 600px) {
+            body{
+                padding:0;
+            }
+            .steps{
+            grid-template-columns:1fr;
+             }
             #create_table {
                 height: auto;
             }
