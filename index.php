@@ -171,6 +171,13 @@ $subdomain=explode('.',$parseURL['host']);
         .product-select-menu .searchRes:hover{
             background-color: #f3f3f3;
         } 
+        .steps{
+            display:grid;
+            grid-template-columns:1fr 7fr;
+        }
+        .steps h3{
+            grid-column:-1/2;
+        }
         .steps p{
             padding: 20px;
             margin: 5px 0;
@@ -182,6 +189,8 @@ $subdomain=explode('.',$parseURL['host']);
             border-width: 0;
             border-color: transparent;
             color: white;
+            padding: 5px;
+            border-radius: 3px;
         }
 
         #open_table{
@@ -189,7 +198,7 @@ $subdomain=explode('.',$parseURL['host']);
             border-width: 0;
             border-color: transparent;
             color: white;
-            margin: 0 auto;
+            margin: 20px auto;
             width: 100px;
             display: block;
         }
@@ -239,9 +248,9 @@ $subdomain=explode('.',$parseURL['host']);
     <h1>Waffle grid compare</h1>
     <h2 class="steps-header">let's get started:</h2>
     <div class="steps">
-    <p>step 1: with the "create an new table" below choose the products and the values you want to compare. </p>
-    <p>step 2: in the dashboard go to ( Online Store -> pages ) choose the page you want to include the grid in</p>
-    <p>step 3: at the bottom right choos the "Template suffix" with the name you chose.</p>
+    <h3>step 1:</h3><p> with the "create an new table" below choose the products and the values you want to compare. </p>
+    <h3>step 2:</h3><p> in the dashboard go to ( Online Store -> pages ) choose the page you want to include the grid in</p>
+    <h3>step 3:</h3><p> at the bottom right choos the "Template suffix" with the name you chose.</p>
     </div>
     <input type='hidden' class="subdomain" name="subdomain" value='<?php echo $shop; ?>'>
     <button id="open_table">CREATE A NEW TABLE</button>
