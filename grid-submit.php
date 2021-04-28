@@ -194,7 +194,7 @@ $section_end = '
                 {% endjavascript %}
 
                 ';
-$section_value=$section_value+$section_end;
+$section_value=$section_value.''.$section_end;
 
 
 $page_template='
