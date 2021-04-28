@@ -177,21 +177,20 @@ $subdomain=explode('.',$parseURL['host']);
             background-color: white;
             border: 1px lightgray solid;
         }
-
-        #open_table{
-            --p-button-color: var(--p-action-primary);
-            --p-button-text: var(--p-text-on-primary);
-            --p-button-color-hover: var(--p-action-primary-hovered);
-            --p-button-color-active: var(--p-action-primary-pressed);
-            --p-button-color-depressed: var(--p-action-primary-depressed);
-            background: var(--p-button-color);
+        button{
+            background: rgb(162 117 0 / 98%);;
             border-width: 0;
             border-color: transparent;
-            box-shadow: var(--p-button-drop-shadow), var(--p-button-inner-shadow);
-            color: var(--p-button-text);
+            color: white;
+        }
+
+        #open_table{
+            background: rgb(162 117 0 / 98%);;
+            border-width: 0;
+            border-color: transparent;
+            color: white;
             margin: 0 auto;
             width: 100px;
-            /* background-color: var(--p-action-primary); */
             display: block;
         }
         @media (max-width: 600px) {
