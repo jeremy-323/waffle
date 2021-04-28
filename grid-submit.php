@@ -128,6 +128,15 @@ $section_value .= '
                     font-weight:bold;
 
                 }
+                @media(max-width:600px){
+                  
+                    #section-cta'.$one_title.' .grid-compare td{
+                       padding: 2px;
+                      font-size: 1.6vw;
+                          }	
+                    
+                    
+                    }
                 </style>
                 {% if section.settings.borders_'.$one_title.' %}
                     <style>
