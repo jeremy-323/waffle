@@ -53,11 +53,6 @@ function checkOption($value, $a)
 {
     foreach ($value["options"] as $f) {
 
-        var_dump($f['position']);
-        // var_dump($value["options"]);
-        var_dump($f['name']);
-        var_dump($a);
-
         if ($f['name'] == $a) {
 
                 return 'option' . $f['position'];
@@ -83,11 +78,9 @@ foreach ($id_array as $id) {
             if (isset($val[$a])) {
                 $fields_val .= '<td>' . $val[$a] . '</td>';
             } else if(is_string(checkOption($value, $a))) {
-                var_dump(checkOption($value, $a));
                 $fields_val .= '<td>' . $val[checkOption($value, $a)] . '</td>';
             } else {
                 $fields_val .= '<td>-</td>';
-                var_dump(checkOption($value, $a));
             }
         }
 
@@ -145,7 +138,10 @@ $section_value .= '
                         border:none;
 
                     }
-                    </style>
+                    </style>';
+echo $section_value;
+
+$section_end = '
                 {%endif%}
                 {% schema %}
                 {
@@ -198,6 +194,8 @@ $section_value .= '
                 {% endjavascript %}
 
                 ';
+$section_value=$section_value+$section_end;
+
 
 $page_template='
 <div class="page-width">
@@ -244,5 +242,3 @@ foreach ($theme as $cur_theme) {
 }
 $htmlcode= explode('{% schema %}',$section_value)[0];
 $htmlcode= str_replace("{{ section.settings.text-box }}",'',$htmlcode);
-var_dump($asset);
-var_dump($asset2);

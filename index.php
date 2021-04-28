@@ -300,7 +300,7 @@ $subdomain=explode('.',$parseURL['host']);
 
 
 
-
+<div id="result"></div>
 
 
 
@@ -462,7 +462,7 @@ $subdomain=explode('.',$parseURL['host']);
                         $(".loaderImage").hide();
                         location.reload();
                         console.log(response);
-
+                        $('#result').append(response)
                     },
                     error: function(response) {
                         $('.info').html(response);
