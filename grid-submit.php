@@ -102,7 +102,7 @@ foreach ($id_array as $id) {
 
         $section_value .= '<tr>
                             <td><img src="' . $image . '" style="width:100px; margin-left: auto;"></td>
-                            <td><a class:"title-link" style="text-decoration:none; border: none; color:{{ settings.color_body_text }};" href="'.$subdomain.'/products/'.$value["handle"].'">' . $value["title"] . '</a></td>
+                            <td><a class:"title-link" style="text-decoration:none; border: none; color:{{ settings.color_body_text }};" href="https://'.$subdomain.'/products/'.$value["handle"].'">' . $value["title"] . '</a></td>
                             ' . $fields_val . '
                         </tr>';
     }
