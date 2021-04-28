@@ -44,7 +44,7 @@ if (hash_equals($hmac, $computed_hmac)) {
 
 	// Show the access token (don't do this in production!)
 	// echo $access_token;
-    $sql = 'INSERT INTO example_table(store_url,access_token, install_date) VALUE("'.$shop_url.'" ,"'.$access_token.'" ,NOW())';
+    $sql = ' INSERT INTO `waffle_cred` (`store_url`, `access_token`, `install_date`) VALUES ("'.$shop_url.'" ,"'.$access_token.'" ,NOW())';
 
 	if(mysqli_query($conn,$sql)){
 		header('Location: https://'.$shop_url.'/admin/apps');
