@@ -258,38 +258,38 @@ $subdomain=explode('.',$parseURL['host']);
     </div>
     <div class="assets-container">
         <?php
-        // $theme = shopify_call($token, $shop, "/admin/api/2021-04/themes.json", array(), 'GET');
-        // $theme = json_decode($theme['response'], JSON_PRETTY_PRINT);
+        $theme = shopify_call($token, $shop, "/admin/api/2021-04/themes.json", array(), 'GET');
+        $theme = json_decode($theme['response'], JSON_PRETTY_PRINT);
 
 
 
-        // foreach ($theme as $cur_theme) {
-        //     // var_dump($cur_theme);
+        foreach ($theme as $cur_theme) {
+            // var_dump($cur_theme);
 
-        //     foreach ($cur_theme as $key => $value) {
-        //         $theme_id = $value['id'];
-        //         $theme_role = $value['role'];
-        //         if ($theme_role === 'main') {
+            foreach ($cur_theme as $key => $value) {
+                $theme_id = $value['id'];
+                $theme_role = $value['role'];
+                if ($theme_role === 'main') {
 
-        //             $assets = shopify_call($token, $shop, "/admin/api/2021-04/themes/" . $theme_id . "/assets.json", array(), 'GET');
-        //             $assets = json_decode($assets['response'], JSON_PRETTY_PRINT);
-        //             foreach ($assets as $asset) {
-        //                 foreach ($asset as $key => $value) {
-        //                     if (stripos($value['key'], '_gridCompare.liquid') !== false) {
-        //                         $asset_name = str_replace("sections/", "", $value['key']);
-        //                         $asset_name = str_replace("_gridCompare.liquid", "", $asset_name);
-        //                         echo '
-        //                     <div class="asset-div" style="display:flex; align-items: center; margin:5px; padding:15px 50px; border: 1px lightgray solid; cursor:pointer; border-radius: 5px; background:white;">
-        //                     <p style="display:inline-block;">' . $asset_name . '</p>
-        //                     <button id="' . $value['key'] . '" class="asset_delete">Delete</button>
+                    $assets = shopify_call($token, $shop, "/admin/api/2021-04/themes/" . $theme_id . "/assets.json", array(), 'GET');
+                    $assets = json_decode($assets['response'], JSON_PRETTY_PRINT);
+                    foreach ($assets as $asset) {
+                        foreach ($asset as $key => $value) {
+                            if (stripos($value['key'], '_gridCompare.liquid') !== false) {
+                                $asset_name = str_replace("sections/", "", $value['key']);
+                                $asset_name = str_replace("_gridCompare.liquid", "", $asset_name);
+                                echo '
+                            <div class="asset-div" style="display:flex; align-items: center; margin:5px; padding:15px 50px; border: 1px lightgray solid; cursor:pointer; border-radius: 5px; background:white;">
+                            <p style="display:inline-block;">' . $asset_name . '</p>
+                            <button id="' . $value['key'] . '" class="asset_delete">Delete</button>
                
-        //                     </div>';
-        //                     }
-        //                 }
-        //             }
-        //         }
-        //     }
-        // }
+                            </div>';
+                            }
+                        }
+                    }
+                }
+            }
+        }
 
 
 
