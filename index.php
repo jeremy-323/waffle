@@ -214,7 +214,11 @@ $subdomain=explode('.',$parseURL['host']);
 </head>
 
 <body>
-    <h1>grid compare</h1>
+    <h1>Waffle grid compare</h1>
+    <h2>let's get started:</h2>
+    <p>step 1: with the "create an new table" below choose the products and the values you want to compare. </p>
+    <p>step 2: in the dashboard go to ( Online Store -> pages ) choose the page you want to include the grid in</p>
+    <p>step 3: at the bottom right choos the "Template suffix" with the name you chose.</p>
     <input type='hidden' class="subdomain" name="subdomain" value='<?php echo $shop; ?>'>
     <button id="open_table">CREATE A NEW TABLE</button>
     <div id="create_table" style="display:none; z-index:20;">
