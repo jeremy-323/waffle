@@ -6,8 +6,8 @@ require_once("inc/connect.php");
 
 
 // Set variables for our request
-$api_key = "f8023b46ccb55af27f0e3990e8e28316";
-$shared_secret = "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";
+$api_key = "db670201bae3f324570b0ed503911859";
+$shared_secret = "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";
 $params = $_GET; // Retrieve all request parameters
 $hmac = $_GET['hmac']; // Retrieve HMAC request parameter
 $shop_url= $params['shop'];
