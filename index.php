@@ -1,19 +1,15 @@
-<!-- 
-php
-// require_once("inc/functions.php");
-// require_once("inc/connect.php");
-// require('./vendor/autoload.php');
-// $app->get('/cowsay', function() use($app) {
-//     $app['monolog']->addDebug('cowsay');
-//     return "<pre>".\Cowsayphp\Cow::say("Cool beans")."</pre>";
-//   });
+<?php
+require_once("inc/functions.php");
+require_once("inc/connect.php");
+
 
 // $requests = $_GET;
 
 // $sql = 'SELECT * FROM example_table WHERE store_url="' . $requests['shop'] . '" LIMIT 1';
 // $result = mysqli_query($conn, $sql);
 // $row = mysqli_fetch_assoc($result);
-
+// // echo $row['store_url'];
+// // echo $row['access_token'];
 
 
 
@@ -25,6 +21,7 @@ php
 // $shop = $row['store_url'];
 
 // $parseURL = parse_url($shop);
+// $subdomain=explode('.',$parseURL['host']);
 
 
 
@@ -33,7 +30,7 @@ php
 // $script_array = array(
 //     'script_tag'=> array(
 //         'event' => 'onload',
-//         'src'=> ' https://wafful.herokuapp.com/scripts/script.js'
+//         'src'=> ' https://621723444051.ngrok.io/shopify-app/scripts/script.js'
 //     )
 // );
 // $scriptTag=shopify_call($token, $shop, "/admin/api/2021-04/script_tags.json", $script_array,'POST');
@@ -260,39 +257,39 @@ php
     <div class="info">
     </div>
     <div class="assets-container">
-        <php
-        $theme = shopify_call($token, $shop, "/admin/api/2021-04/themes.json", array(), 'GET');
-        $theme = json_decode($theme['response'], JSON_PRETTY_PRINT);
+        <?php
+        // $theme = shopify_call($token, $shop, "/admin/api/2021-04/themes.json", array(), 'GET');
+        // $theme = json_decode($theme['response'], JSON_PRETTY_PRINT);
 
 
 
-        foreach ($theme as $cur_theme) {
-            // var_dump($cur_theme);
+        // foreach ($theme as $cur_theme) {
+        //     // var_dump($cur_theme);
 
-            foreach ($cur_theme as $key => $value) {
-                $theme_id = $value['id'];
-                $theme_role = $value['role'];
-                if ($theme_role === 'main') {
+        //     foreach ($cur_theme as $key => $value) {
+        //         $theme_id = $value['id'];
+        //         $theme_role = $value['role'];
+        //         if ($theme_role === 'main') {
 
-                    $assets = shopify_call($token, $shop, "/admin/api/2021-04/themes/" . $theme_id . "/assets.json", array(), 'GET');
-                    $assets = json_decode($assets['response'], JSON_PRETTY_PRINT);
-                    foreach ($assets as $asset) {
-                        foreach ($asset as $key => $value) {
-                            if (stripos($value['key'], '_gridCompare.liquid') !== false) {
-                                $asset_name = str_replace("sections/", "", $value['key']);
-                                $asset_name = str_replace("_gridCompare.liquid", "", $asset_name);
-                                echo '
-                            <div class="asset-div" style="display:flex; align-items: center; margin:5px; padding:15px 50px; border: 1px lightgray solid; cursor:pointer; border-radius: 5px; background:white;">
-                            <p style="display:inline-block;">' . $asset_name . '</p>
-                            <button id="' . $value['key'] . '" class="asset_delete">Delete</button>
+        //             $assets = shopify_call($token, $shop, "/admin/api/2021-04/themes/" . $theme_id . "/assets.json", array(), 'GET');
+        //             $assets = json_decode($assets['response'], JSON_PRETTY_PRINT);
+        //             foreach ($assets as $asset) {
+        //                 foreach ($asset as $key => $value) {
+        //                     if (stripos($value['key'], '_gridCompare.liquid') !== false) {
+        //                         $asset_name = str_replace("sections/", "", $value['key']);
+        //                         $asset_name = str_replace("_gridCompare.liquid", "", $asset_name);
+        //                         echo '
+        //                     <div class="asset-div" style="display:flex; align-items: center; margin:5px; padding:15px 50px; border: 1px lightgray solid; cursor:pointer; border-radius: 5px; background:white;">
+        //                     <p style="display:inline-block;">' . $asset_name . '</p>
+        //                     <button id="' . $value['key'] . '" class="asset_delete">Delete</button>
                
-                            </div>';
-                            }
-                        }
-                    }
-                }
-            }
-        }
+        //                     </div>';
+        //                     }
+        //                 }
+        //             }
+        //         }
+        //     }
+        // }
 
 
 
@@ -510,11 +507,4 @@ php
     });
 </script>
 
-</html> -->
-
-
-<html>
-<body>
-    <div>sdldfjlijrfjij</div>
-</body>
 </html>
