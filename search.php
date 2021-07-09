@@ -19,6 +19,7 @@ $products = shopify_call($token, $subdomain, "/admin/api/2021-01/products.json",
 $products= json_decode($products['response'], JSON_PRETTY_PRINT);
 
 
+
 echo '<div class="product-select-menu">';
 foreach ($products as $product){
     echo '<br>';
@@ -32,8 +33,8 @@ foreach ($products as $product){
                     $images= json_decode($images['response'], JSON_PRETTY_PRINT);
                     
                     
-                    if (sizeof($images['images'])) {
-                    $image=$images['images'][0]['src'];
+                    if (!empty($images) && isset($images['images'][0]['src'])) {
+                        $image=$images['images'][0]['src'];
                     }else {
                         $image='https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg';
                     }
@@ -56,7 +57,7 @@ foreach ($products as $product){
                     $images= json_decode($images['response'], JSON_PRETTY_PRINT);
                     
                     
-                    if (sizeof($images['images'])) {
+                    if (!empty($images) && isset($images['images'][0]['src'])) {
                     $image=$images['images'][0]['src'];
                     }else {
                         $image='https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg';
@@ -79,6 +80,7 @@ foreach ($products as $product){
 }
 
 echo '</div>';
+
 
 
 ?>

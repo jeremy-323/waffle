@@ -283,7 +283,8 @@ $subdomain=explode('.',$parseURL['host']);
             <div class="search-area">
                 <div><span style="font-size: 12px; filter: saturate(0.2) brightness(1.3); padding: 0 5px;">🔍</span><input type='text' class="searchInput" name="searchInput" placeholder='search...'></div>
                 <div class="product_list">
-                    <img class="loaderImage" src="https://icon-library.net/images/loading-icon-transparent-background/loading-icon-transparent-background-18.jpg" alt="loading" style=" display:block; width:60px; margin:100px auto; filter: saturate(0.1) brightness(0.6);">
+                     <img class="loaderImage" src="./Cube-1s-200px.gif" alt="loading" style=" display:block; width:60px; margin:100px auto; ">
+
                 </div>
             </div>
         </div>
@@ -341,7 +342,8 @@ $subdomain=explode('.',$parseURL['host']);
 
         ?>
     </div>
-    <img class="loaderImage" src="https://icon-library.net/images/loading-icon-transparent-background/loading-icon-transparent-background-18.jpg" alt="loading" style=" display:block; width:60px; margin:100px auto; filter: saturate(0.1) brightness(0.6);">
+     <img class="loaderImage" src="./Cube-1s-200px.gif" alt="loading" style=" display:block; width:60px; margin:100px auto; ">
+
 
 
 

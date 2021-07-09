@@ -9,7 +9,7 @@ $one_title = str_replace(' ', '-', $title);
 $subdomain = $_POST['store'];
 
 $result = "";
-$sql = 'SELECT * FROM waffle_cred WHERE store_url="' . $subdomain . '" LIMIT 1';
+$sql = 'SELECT * FROM example_table WHERE store_url="' . $subdomain . '" LIMIT 1';
 
 $result = mysqli_query($conn, $sql);
 $row = mysqli_fetch_assoc($result);
@@ -53,6 +53,11 @@ function checkOption($value, $a)
 {
     foreach ($value["options"] as $f) {
 
+        var_dump($f['position']);
+        // var_dump($value["options"]);
+        var_dump($f['name']);
+        var_dump($a);
+
         if ($f['name'] == $a) {
 
                 return 'option' . $f['position'];
@@ -78,9 +83,11 @@ foreach ($id_array as $id) {
             if (isset($val[$a])) {
                 $fields_val .= '<td>' . $val[$a] . '</td>';
             } else if(is_string(checkOption($value, $a))) {
+                var_dump(checkOption($value, $a));
                 $fields_val .= '<td>' . $val[checkOption($value, $a)] . '</td>';
             } else {
                 $fields_val .= '<td>-</td>';
+                var_dump(checkOption($value, $a));
             }
         }
 
@@ -95,7 +102,7 @@ foreach ($id_array as $id) {
 
         $section_value .= '<tr>
                             <td><img src="' . $image . '" style="width:100px; margin-left: auto;"></td>
-                            <td><a class:"title-link" style="text-decoration:none; border: none; color:{{ settings.color_body_text }};" href="https://'.$subdomain.'/products/'.$value["handle"].'">' . $value["title"] . '</a></td>
+                            <td><a class:"title-link" style="text-decoration:none; border: none; color:{{ settings.color_body_text }};" href="'.$subdomain.'/products/'.$value["handle"].'">' . $value["title"] . '</a></td>
                             ' . $fields_val . '
                         </tr>';
     }
@@ -121,15 +128,10 @@ $section_value .= '
                     font-weight:bold;
 
                 }
-                @media(max-width:600px){
-                  
-                    #section-cta'.$one_title.' .grid-compare td{
-                       padding: 2px;
-                      font-size: 1.6vw;
-                          }	
-                    
-                    
-                    }
+                #section-ctawaffles .grid-compare td a.title-link::after{
+                    content: none;
+                    display:none;
+                }
                 </style>
                 {% if section.settings.borders_'.$one_title.' %}
                     <style>
@@ -138,10 +140,7 @@ $section_value .= '
                         border:none;
 
                     }
-                    </style>';
-echo $section_value;
-
-$section_end = '
+                    </style>
                 {%endif%}
                 {% schema %}
                 {
@@ -194,8 +193,6 @@ $section_end = '
                 {% endjavascript %}
 
                 ';
-$section_value=$section_value.''.$section_end;
-
 
 $page_template='
 <div class="page-width">
@@ -212,6 +209,58 @@ $page_template='
     </div>
   </div>
 </div>
+
+';
+$article_template='
+
+<article class="article">
+  {% section "article-template" %}
+  {% section "' . $one_title . '_gridCompare" %}
+
+</article>
+
+
+
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Article",
+  "articleBody": {{ article.content | strip_html | json }},
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": {{ shop.url | append: page.url | json }}
+  },
+  "headline": {{ article.title | json }},
+  {% if article.excerpt != blank %}
+    "description": {{ article.excerpt | strip_html | json }},
+  {% endif %}
+  {% if article.image %}
+    {% assign image_size = article.image.width | append: "x" %}
+    "image": [
+      {{ article | img_url: image_size | prepend: "https:" | json }}
+    ],
+  {% endif %}
+  "datePublished": {{ article.published_at | date: "%Y-%m-%dT%H:%M:%SZ" | json }},
+  "dateCreated": {{ article.created_at | date: "%Y-%m-%dT%H:%M:%SZ" | json }},
+  "author": {
+    "@type": "Person",
+    "name": {{ article.author | json }}
+  },
+  "publisher": {
+    "@type": "Organization",
+    {% if settings.share_image %}
+      {% assign image_size = settings.share_image.width | append: "x" %}
+      "logo": {
+        "@type": "ImageObject",
+        "height": {{ settings.share_image.height | json }},
+        "url": {{ settings.share_image | img_url: image_size | prepend: "https:" | json }},
+        "width": {{ settings.share_image.width | json }}
+      },
+    {% endif %}
+    "name": {{ shop.name | json }}
+  }
+}
+</script>
 
 ';
 
@@ -237,8 +286,20 @@ foreach ($theme as $cur_theme) {
             );
             $asset2 = shopify_call($token, $subdomain, "/admin/api/2021-01/themes/" . $theme_id . "/assets.json", $asset_page, 'PUT');
             $asset2 = json_decode($asset2['response'], JSON_PRETTY_PRINT);
+
+
+            $asset_article = array(
+                "asset" =>  array(
+                    'key' => 'templates/article.' . $one_title . '.liquid',
+                    'value' => $article_template
+                )
+            );
+            $asset3 = shopify_call($token, $subdomain, "/admin/api/2021-01/themes/" . $theme_id . "/assets.json", $asset_article, 'PUT');
+            $asset3 = json_decode($asset3['response'], JSON_PRETTY_PRINT);
         }
     }
 }
 $htmlcode= explode('{% schema %}',$section_value)[0];
 $htmlcode= str_replace("{{ section.settings.text-box }}",'',$htmlcode);
+var_dump($asset);
+var_dump($asset2);
