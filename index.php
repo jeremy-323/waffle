@@ -13,7 +13,6 @@ $row = mysqli_fetch_assoc($result);
 // echo $row['access_token'];
 
 
-echo $_GET['shop'];
 $hmace = $_GET['hmac'];
 $serializeArray = serialize($requests);
 $requests = array_diff_key($requests, array('hmac' => ''));
