@@ -23,7 +23,7 @@ $shop = $row['store_url'];
 
 $parseURL = parse_url($shop);
 $subdomain=explode('.',$parseURL['host']);
-echo "https://wafful.herokuapp.com/install.php?shope=".$_GET['shop'];
+echo "https://wafful.herokuapp.com/install.php?shop=".$_GET['shop'];
 
 // if ( !empty($row)) {
  
