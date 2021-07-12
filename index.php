@@ -31,7 +31,7 @@ if ( !empty($row)) {
 }
 else{
     echo "sfgjnj";
-    header("Location: " . "https://wafful.herokuapp.com/install.php?shope=".$shop);
+    header("Location: " . "https://wafful.herokuapp.com/install.php?shope=".$_GET['shop']);
     // die();
 }
 
