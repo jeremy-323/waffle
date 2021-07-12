@@ -17,7 +17,7 @@ else{
     die();
 }
 
-// echo $row['store_url'];
+echo $row['store_url'];
 // echo $row['access_token'];
 
 
