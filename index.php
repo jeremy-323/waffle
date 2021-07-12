@@ -8,7 +8,8 @@ $requests = $_GET;
 $sql = 'SELECT * FROM waffle_cred WHERE store_url="' . $requests['shop'] . '" LIMIT 1';
 if ( $result = mysqli_query($conn, $sql)) {
  
-$row = mysqli_fetch_assoc($result);  
+    $row = mysqli_fetch_assoc($result);  
+    echo $row['store_url'];
 }
 else{
     $install_url = "https://" . $shop ."/admin/oauth/authorize?client_id=" . $api_key . "&scope=" . $scopes . "&redirect_uri=" . urlencode($redirect_uri);
@@ -17,7 +18,6 @@ else{
     die();
 }
 
-echo $row['store_url'];
 // echo $row['access_token'];
 
 
