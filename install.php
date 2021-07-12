@@ -2,6 +2,7 @@
 
 // Set variables for our request
 $shop = $_GET['shop'];
+echo $shop;
 $api_key = "f8023b46ccb55af27f0e3990e8e28316";
 $scopes = "read_orders,write_products,write_script_tags,read_content,write_themes";
 $redirect_uri = "https://wafful.herokuapp.com/generate_token.php";

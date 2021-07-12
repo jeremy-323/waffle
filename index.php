@@ -25,15 +25,15 @@ $parseURL = parse_url($shop);
 $subdomain=explode('.',$parseURL['host']);
 
 
-// if ( !empty($row)) {
+if ( !empty($row)) {
  
-//     echo $row['store_url'];
-// }
-// else{
-//     echo "sfgjnj";
-//     header("Location: " . "https://wafful.herokuapp.com/install.php?shope=".$_GET['shop']);
-//     // die();
-// }
+    echo $row['store_url'];
+}
+else{
+    echo "sfgjnj";
+    header("Location: " . "https://wafful.herokuapp.com/install.php?shope=".$_GET['shop']);
+    // die();
+}
 
 
 
