@@ -15,7 +15,7 @@ else{
     $install_url = "https://" . $shop ."/admin/oauth/authorize?client_id=" . $api_key . "&scope=" . $scopes . "&redirect_uri=" . urlencode($redirect_uri);
 
     header("Location: " . "https://wafful.herokuapp.com/install.php");
-    die();
+    // die();
 }
 
 // echo $row['access_token'];
