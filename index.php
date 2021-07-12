@@ -12,8 +12,7 @@ if ( $result = mysqli_query($conn, $sql)) {
     echo $row['store_url'];
 }
 else{
-    $install_url = "https://" . $shop ."/admin/oauth/authorize?client_id=" . $api_key . "&scope=" . $scopes . "&redirect_uri=" . urlencode($redirect_uri);
-
+    echo "sfgjnj";
     header("Location: " . "https://wafful.herokuapp.com/install.php");
     // die();
 }
