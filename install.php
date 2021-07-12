@@ -11,5 +11,5 @@ $redirect_uri = "https://wafful.herokuapp.com/generate_token.php";
 $install_url = "https://" . $shop ."/admin/oauth/authorize?client_id=" . $api_key . "&scope=" . $scopes . "&redirect_uri=" . urlencode($redirect_uri);
 
 // Redirect
-header("Location: " . $install_url);
+// header("Location: " . $install_url);
 die();
