@@ -9,15 +9,6 @@ $sql = 'SELECT * FROM waffle_cred WHERE store_url="' . $requests['shop'] . '" LI
 $result = mysqli_query($conn, $sql);
 $row = mysqli_fetch_assoc($result);
 
-if ( !empty($row)) {
- 
-    echo $row['store_url'];
-}
-else{
-    echo "sfgjnj";
-    header("Location: " . "https://wafful.herokuapp.com/install.php");
-    // die();
-}
 // echo $row['store_url'];
 // echo $row['access_token'];
 
@@ -34,6 +25,15 @@ $parseURL = parse_url($shop);
 $subdomain=explode('.',$parseURL['host']);
 
 
+if ( !empty($row)) {
+ 
+    echo $row['store_url'];
+}
+else{
+    echo "sfgjnj";
+    header("Location: " . "https://wafful.herokuapp.com/install.php?shope=".$shop);
+    // die();
+}
 
 
 
