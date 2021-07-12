@@ -4,11 +4,13 @@ require_once("inc/connect.php");
 
 
 $requests = $_GET;
-echo "sfgjnj";
+
 $sql = 'SELECT * FROM waffle_cred WHERE store_url="' . $requests['shop'] . '" LIMIT 1';
-if ( $result = mysqli_query($conn, $sql)) {
+$result = mysqli_query($conn, $sql);
+$row = mysqli_fetch_assoc($result);
+
+if ( !empty($row)) {
  
-    $row = mysqli_fetch_assoc($result);  
     echo $row['store_url'];
 }
 else{
@@ -16,7 +18,7 @@ else{
     header("Location: " . "https://wafful.herokuapp.com/install.php");
     // die();
 }
-
+// echo $row['store_url'];
 // echo $row['access_token'];
 
 
