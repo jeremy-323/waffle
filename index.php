@@ -18,16 +18,12 @@ $hmace = $_GET['hmac'];
 $serializeArray = serialize($requests);
 $requests = array_diff_key($requests, array('hmac' => ''));
 ksort($requests);
-$token = $row['access_token'];
-$shop = $row['store_url'];
 
-$parseURL = parse_url($shop);
-$subdomain=explode('.',$parseURL['host']);
-echo "https://wafful.herokuapp.com/install.php?shop=".$_GET['shop'];
 
 if ( !empty($row)) {
- 
-    echo $row['store_url'];
+    
+    $token = $row['access_token'];
+    $shop = $row['store_url'];
 }
 else{
     echo "sfgjnj";
@@ -36,6 +32,8 @@ else{
 }
 
 
+$parseURL = parse_url($shop);
+$subdomain=explode('.',$parseURL['host']);
 
 // $script_array = array(
 //     'script_tag'=> array(
