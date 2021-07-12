@@ -6,8 +6,17 @@ require_once("inc/connect.php");
 $requests = $_GET;
 
 $sql = 'SELECT * FROM waffle_cred WHERE store_url="' . $requests['shop'] . '" LIMIT 1';
-$result = mysqli_query($conn, $sql);
-$row = mysqli_fetch_assoc($result);
+if ( $result = mysqli_query($conn, $sql)) {
+ 
+$row = mysqli_fetch_assoc($result);  
+}
+else{
+    $install_url = "https://" . $shop ."/admin/oauth/authorize?client_id=" . $api_key . "&scope=" . $scopes . "&redirect_uri=" . urlencode($redirect_uri);
+
+    header("Location: " . "https://wafful.herokuapp.com/install.php");
+    die();
+}
+
 // echo $row['store_url'];
 // echo $row['access_token'];
 
