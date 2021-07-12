@@ -4,7 +4,7 @@ require_once("inc/connect.php");
 
 
 $requests = $_GET;
-
+echo "sfgjnj";
 $sql = 'SELECT * FROM waffle_cred WHERE store_url="' . $requests['shop'] . '" LIMIT 1';
 if ( $result = mysqli_query($conn, $sql)) {
  
