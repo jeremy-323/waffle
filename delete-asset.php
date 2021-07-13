@@ -44,5 +44,7 @@ foreach ($theme as $cur_theme) {
 
 
 ?>
-asset delete
+<h2>
+delete asset
+</h2>
 
