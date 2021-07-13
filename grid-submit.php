@@ -1,7 +1,7 @@
 <?php
 require_once('inc/functions.php');
 require_once('inc/connect.php');
-
+ini_set('display_errors', 1);
 $fields = $_POST['fields'];
 $title = $_POST['title'];
 $ids = $_POST['products'];

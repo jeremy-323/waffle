@@ -1,7 +1,7 @@
 <?php
 require_once('inc/functions.php');
 require_once('inc/connect.php');
-
+ini_set('display_errors', 1);
 $name= $_POST['name'];
 $id = $_POST['asset'];
 $subdomain = $_POST['store'];
