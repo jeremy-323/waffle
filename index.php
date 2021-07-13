@@ -25,9 +25,8 @@ if ( !empty($row)) {
     $shop = $row['store_url'];
 }
 else{
-    echo "sfgjnj";
     header("Location: " . "https://wafful.herokuapp.com/install.php?shop=".$_GET['shop']);
-    // die();
+    die();
 }
 
 
@@ -258,6 +257,8 @@ $subdomain=explode('.',$parseURL['host']);
         }
 
     </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
 </head>
 
 <body>
@@ -288,7 +289,7 @@ $subdomain=explode('.',$parseURL['host']);
                 <label for="style"> style</label>
             </form>
             <div class="search-area">
-                <div><span style="font-size: 12px; filter: saturate(0.2) brightness(1.3); padding: 0 5px;">🔍</span><input type='text' class="searchInput" name="searchInput" placeholder='search...'></div>
+                <div><span style="font-size: 15px; color: rgb(162 117 0 / 98%);  padding: 0 5px;"><i class="fas fa-search"></i></span><input type='text' class="searchInput" name="searchInput" placeholder='search...'></div>
                 <div class="product_list">
                      <img class="loaderImage" src="./Cube-1s-200px.gif" alt="loading" style=" display:block; width:60px; margin:100px auto; ">
 
@@ -517,7 +518,6 @@ $subdomain=explode('.',$parseURL['host']);
                         $(".loaderImage").hide();
                         location.reload();
                         console.log(response);
-                        $('#result').append(response)
                     },
                     error: function(response) {
                         $('.info').html(response);
