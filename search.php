@@ -67,7 +67,7 @@ foreach ($products as $product){
                     <div class="searchRes search-box product-variant" id="<?php echo $value['id']; ?>id" >
                     <input class="grid-check" style="margin:5px;" type="checkbox" id="<?php echo $value['id']; ?>" name="<?php echo $oneWord; ?>" value="<?php echo $oneWord; ?>">
                     <h4 class="<?php echo $v_key; ?>"><?php echo $result.' '.$v_value['title'];?>  </h4>
-                    <img src="<?php echo $image;?>" style="width: 65px; margin-left: auto; padding: 0 5px; border-radius: 50%;">
+                    <img src="<?php echo $image;?>" style="width: 65px; margin-left: auto; padding: 0 5px;">
 
                     </div>
                     </label>
