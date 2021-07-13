@@ -44,4 +44,5 @@ foreach ($theme as $cur_theme) {
 
 
 ?>
+asset delete
 
