@@ -478,7 +478,6 @@ $subdomain=explode('.',$parseURL['host']);
 
         $(document).on('click', "#import_grid", function() {
 
-            var subdomain = $('.subdomain').val();
             var title = $('#title-select').val();
             var products = '';
             var fields = [];
@@ -504,6 +503,8 @@ $subdomain=explode('.',$parseURL['host']);
                 });
                 $('.checked_products').slideUp();
                 $('.loaderImage').show();
+        var subdomain = $('.subdomain').val();
+                
                 $.ajax({
                     type: 'POST',
                     data: {
@@ -518,6 +519,7 @@ $subdomain=explode('.',$parseURL['host']);
                         $(".loaderImage").hide();
                         location.reload();
                         console.log(response);
+
                     },
                     error: function(response) {
                         $('.info').html(response);
@@ -531,10 +533,11 @@ $subdomain=explode('.',$parseURL['host']);
 
 
         $(document).on('click', ".asset_delete", function() {
-            var subdomain = $('.subdomain').val();
             var asset = $(this).attr('id');
             var name = $(this).siblings('p').text();
             $('.loaderImage').show();
+        var subdomain = $('.subdomain').val();
+            
             $.ajax({
                 type: 'POST',
                 data: {
@@ -546,7 +549,6 @@ $subdomain=explode('.',$parseURL['host']);
                 dataType: 'html',
                 success: function(response) {
                     $(".loaderImage").hide();
-                    alert(name + ' is deleted');
 
                 },
                 error: function(response) {
@@ -557,6 +559,33 @@ $subdomain=explode('.',$parseURL['host']);
                 }
             });
             $(this).parents('.asset-div').remove();
+        });
+
+
+
+$(document).on('click', "#graph", function() {
+            $('.loaderImage').show();
+        var subdomain = $('.subdomain').val();
+            
+            $.ajax({
+                type: 'POST',
+                data: {
+                    store: subdomain
+                },
+                url: 'graphql.php',
+                dataType: 'html',
+                success: function(response) {
+                    $(".loaderImage").hide();
+                    console.log(response);
+
+                },
+                error: function(response) {
+                    console.log(response);
+                    $(".loaderImage").hide();
+
+
+                }
+            });
         });
         
     });
