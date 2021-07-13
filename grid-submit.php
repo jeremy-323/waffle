@@ -13,9 +13,6 @@ $sql = 'SELECT * FROM waffle_cred WHERE store_url="' . $subdomain . '" LIMIT 1';
 
 $result = mysqli_query($conn, $sql);
 
-echo $sql;
-echo $subdomain;
-var_dump($result);
 $row = mysqli_fetch_assoc($result);
 $token = $row['access_token'];
 

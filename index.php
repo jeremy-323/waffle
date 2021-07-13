@@ -518,7 +518,6 @@ $subdomain=explode('.',$parseURL['host']);
                     success: function(response) {
                         $(".loaderImage").hide();
                         location.reload();
-                        console.log(response);
 
                     },
                     error: function(response) {
