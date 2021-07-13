@@ -44,6 +44,9 @@ if (hash_equals($hmac, $computed_hmac)) {
 
 	// Show the access token (don't do this in production!)
 	// echo $access_token;
+	$query = 'DELETE FROM `waffle_cred` WHERE store_url="'.$shop_url.'";';
+    if (mysqli_query($conn, $query)) {
+    }
     $sql = ' INSERT INTO `waffle_cred` (`store_url`, `access_token`, `install_date`) VALUES ("'.$shop_url.'" ,"'.$access_token.'" ,NOW())';
 
 	if(mysqli_query($conn,$sql)){
