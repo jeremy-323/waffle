@@ -9,7 +9,7 @@ $one_title = str_replace(' ', '-', $title);
 $subdomain = $_POST['store'];
 
 $result = "";
-$sql = 'SELECT * FROM example_table WHERE store_url="' . $subdomain . '" LIMIT 1';
+$sql = 'SELECT * FROM waffle_cred WHERE store_url="' . $subdomain . '" LIMIT 1';
 
 $result = mysqli_query($conn, $sql);
 
