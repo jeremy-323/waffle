@@ -9,8 +9,8 @@ $sql = 'SELECT * FROM waffle_cred WHERE store_url="' . $requests['shop'] . '" LI
 $result = mysqli_query($conn, $sql);
 $row = mysqli_fetch_assoc($result);
 
-echo $row['store_url'];
-echo $row['access_token'];
+// echo $row['store_url'];
+// echo $row['access_token'];
 
 
 $hmace = $_GET['hmac'];
