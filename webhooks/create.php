@@ -5,7 +5,7 @@ function varify($data, $hmac){
     $varify_hmac=base64_encode(hash_hmac('sha256',$data,SHOPIFY_KEY, true ));
     return hash_equals($hmac,$varify_hmac);
 };
-$my_hmac=$_SERVER('x-shopify-Hmac-Sha256');
+$my_hmac=$_SERVER('X-Shopify-Hmac-Sha256');
 
 $response='';
 $data= file_get_contents('php://input');
@@ -19,7 +19,8 @@ if($varify_merchant){
     $response='this is not from shopify!';
 }
 
-$domain=$_SERVER('X_SHOPIFY-Shop-Domain');
+$domain=$_SERVER('X-Shopify-Shop-Domain');
 $log=fopen($domain.'.json','w') or die('cant open this file');
 fwrite($log,$response);
 fclose($log);
+?>
