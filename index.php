@@ -54,8 +54,8 @@ $subdomain=explode('.',$parseURL['host']);
 // exit;
 $array=array(
     'webhook' => array(
-        'topic'=>'products/create',
-        'address'=>"https://wafful.herokuapp.com/webhooks/create.php",
+        'topic'=>'products\/create',
+        'address'=>"https:\/\/wafful.herokuapp.com\/webhooks\/create.php",
         'format'=>'json'        
     )
     );
