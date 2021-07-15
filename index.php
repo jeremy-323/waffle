@@ -2,6 +2,7 @@
 require_once("inc/functions.php");
 require_once("inc/connect.php");
 
+require_once("webhooks.php");
 
 $requests = $_GET;
 
