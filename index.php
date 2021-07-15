@@ -29,7 +29,7 @@ else{
     header("Location: " . "https://wafful.herokuapp.com/install.php?shop=".$_GET['shop']);
     die();
 }
-require_once("webhooks.php");
+require_once("./webhooks.php");
 
 $parseURL = parse_url($shop);
 $subdomain=explode('.',$parseURL['host']);
