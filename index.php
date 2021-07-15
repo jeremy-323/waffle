@@ -52,7 +52,16 @@ $subdomain=explode('.',$parseURL['host']);
 // $shop_url = $_GET['shop'];
 // header('Location: install.php?shop='. $shop_url);
 // exit;
-require_once("webhooks.php");
+$array=array(
+    'webhook' => array(
+        'topic'=>'products/create',
+        'address'=>"https://wafful.herokuapp.com/webhooks/create.php",
+        'format'=>'json'        
+    )
+    );
+$webhooks= shopify_call($token, $shop, "admin/api/2021-07/webhooks.json",$array, 'POST');
+$webhooks=jason_decode($webhooks['response'],true);
+print_r($webhooks);
 ?>
 <!DOCTYPE html>
 <html lang="en">
